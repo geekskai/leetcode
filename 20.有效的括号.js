@@ -62,7 +62,7 @@
  */
 var isValid = function (s) {
     var st = []
-    // s = 'a[f(ddf)l]{fds(sf)sf[]}'
+    // s = '()'
     for (var l of s) {
         // i = 0,1,2,3,4,5
         if ((i = "({[]})".indexOf(l)) > -1) {
@@ -74,6 +74,30 @@ var isValid = function (s) {
         }
     }
     return st.length === 0
+
+    // let valid = true;
+    // const stack = [];
+    // const mapper = {
+    //     '{': "}",
+    //     "[": "]",
+    //     "(": ")"
+    // }
+
+    // for(let i in s) {
+    //     const v = s[i];
+    //     if (['(', '[', '{'].indexOf(v) > -1) {
+    //         stack.push(v);
+    //     } else {
+    //         const peak = stack.pop();
+    //         if (v !== mapper[peak]) {
+    //             return false;
+    //         }
+    //     }
+    // }
+
+    // if (stack.length > 0) return false;
+
+    // return valid;
 };
 // @lc code=end
 
