@@ -49,8 +49,15 @@
  * @param {number} target
  * @return {number}
  */
-var searchInsert = function(nums, target) {
-
+var searchInsert = function (nums, target) {
+    let i = nums.indexOf(target)
+    if (~i) {
+        return i
+    } else {
+        nums.push(target)
+        nums.sort((a, b) => a - b)
+        return nums.indexOf(target)
+    }
 };
 // @lc code=end
 
