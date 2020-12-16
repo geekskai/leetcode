@@ -26,6 +26,4 @@ var wordPattern = function(pattern, str) {
       strMap.set(strArr[i], pattern[i]);
     }
     return true;
-};
-// @lc code=end
 
