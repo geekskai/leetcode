@@ -43,51 +43,68 @@
  * 
  */
 
-// @lc code=start
 /**
  * Initialize your data structure here.
  */
-/**
- * Initialize your data structure here.
- */
-var MyStack = function () {
-    this.stacks = []
+var MyQueue = function() {
+	this.stack1 = []
+	this.stack2 = []
 };
 
 /**
- * Push element x onto stack. 
+ * Push element x to the back of queue. 
  * @param {number} x
  * @return {void}
  */
-MyStack.prototype.push = function (x) {
-    this.stacks.push(x)
+MyQueue.prototype.push = function(x) {
+	this.stack1.push(x)
 };
 
 /**
- * Removes the element on top of the stack and returns that element.
+ * Removes the element from in front of queue and returns that element.
  * @return {number}
  */
-MyStack.prototype.pop = function () {
-    return this.stacks.pop()
+MyQueue.prototype.pop = function() {
+	while(this.stack1.length !== 0){
+		this.stack2.push(this.stack1.pop())
+	}
+
+	var pop = this.stack2.pop()
+
+	while(this.stack2.length !== 0){
+		this.stack1.push(this.stack2.pop())
+	}
+
+	return pop
 };
 
 /**
- * Get the top element.
+ * Get the front element.
  * @return {number}
  */
-MyStack.prototype.top = function () {
-    return this.stacks[this.stacks.length - 1]
+MyQueue.prototype.peek = function() {
+	while(this.stack1.length !== 0){
+		this.stack2.push(this.stack1.pop())
+	}
+
+	var pop = this.stack2.pop()
+	this.stack2.push(pop)
+	while(this.stack2.length !== 0){
+		this.stack1.push(this.stack2.pop())
+	}
+
+	return pop
 };
 
 /**
- * Returns whether the stack is empty.
+ * Returns whether the queue is empty.
  * @return {boolean}
  */
-MyStack.prototype.empty = function () {
-    return this.stacks.length === 0 ? true : false
+MyQueue.prototype.empty = function() {
+	return this.stack1.length === 0 ? true:false
 };
 
-/**
+/** 
  * Your MyQueue object will be instantiated and called as such:
  * var obj = new MyQueue()
  * obj.push(x)
@@ -95,5 +112,6 @@ MyStack.prototype.empty = function () {
  * var param_3 = obj.peek()
  * var param_4 = obj.empty()
  */
+
 // @lc code=end
 
