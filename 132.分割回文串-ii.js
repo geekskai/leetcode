@@ -4,11 +4,6 @@
  * [132] 分割回文串 II
  */
 
-// @lc code=start
-/**
- * @param {string} s
- * @return {number}
- */
  var minCut = function (s) {
   const n = s.length
   const isPali = new Array(n);

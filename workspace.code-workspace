@@ -3,6 +3,10 @@
 		{
 			"name": "leetcode",
 			"path": "."
+		},
+		{
+			"name": "leetcode",
+			"path": "../../file/data/GitHubGanKai/leetcode"
 		}
 	]
 }
