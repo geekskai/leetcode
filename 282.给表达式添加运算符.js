@@ -15,31 +15,37 @@
  * @param {number} target
  * @return {string[]}
  */
-const addOperators = (num, target)=>{
-  let res=[],ans=[];
-  const findRes=(num0,k)=>{
-      if(num0.length<1) return;
-      let flag=(num0.length>1&&num0[0]!=='0')||(num0.length===1);
-      if(flag&&eval(`${res.slice(0,k).join('')}${num0}`)===target){
-          res[k]=num0;
-          ans.push(res.slice(0,k+1).join(''));
-      }else{
-          for(let i=0;i<num0.length;i++){
-              res[k]=num0.slice(0, i + 1);
-              res[k+1]='+';
-              findRes(num0.slice(i + 1), k+2);
-              res[k+1]='-';
-              findRes(num0.slice(i + 1), k+2);
-              res[k+1]='*';
-              findRes(num0.slice(i + 1),k+2);
-              if(num0[0]==='0') break;
-          }
-      }
-  };
-  findRes(num,0);
-  return ans;
+
+const ops = ["-", "*", "+", ""];
+var addOperators = function(num, target) {    
+    const ans = [], path = [];
+
+    const dfs = (idx, sign, curv, val) => {
+        let c = num.charAt(idx);
+        curv = 10 * curv + (c - '0');
+        if(idx == num.length - 1){
+            if(target - val == sign * curv){
+                path.push(c);
+                ans.push(path.join(""));
+                path.pop();
+            }
+        }
+        else{
+            for(let i=0;i<ops.length;i++){
+                path.push(c + ops[i]);
+                if(i == 1)
+                    dfs(idx+1,sign * curv, 0, val);
+                else if(i < 3)
+                    dfs(idx+1,i-1, 0, val + sign * curv);
+                else if(curv > 0 || c != '0')
+                    dfs(idx+1,sign,curv,val);
+                path.pop();
+            }
+        }
+    }
+
+    dfs(0, 1, 0, 0);
+    return ans;
 };
-
-
 // @lc code=end
 
