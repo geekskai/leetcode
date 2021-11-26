@@ -3,10 +3,6 @@
     {
       "name": "leetcode",
       "path": "."
-    },
-    {
-      "name": "leetcode",
-      "path": "../../file/data/geekskai/leetcode"
     }
   ]
 }
