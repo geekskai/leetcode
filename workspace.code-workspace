@@ -1,12 +1,12 @@
 {
-	"folders": [
-		{
-			"name": "leetcode",
-			"path": "."
-		},
-		{
-			"name": "leetcode",
-			"path": "../../file/data/GitHubGanKai/leetcode"
-		}
-	]
+  "folders": [
+    {
+      "name": "leetcode",
+      "path": "."
+    },
+    {
+      "name": "leetcode",
+      "path": "../../file/data/geekskai/leetcode"
+    }
+  ]
 }
